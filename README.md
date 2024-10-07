@@ -19,5 +19,4 @@ This project is a Node.js application that provides a user management API. It al
 - **MongoDB Atlas**: Cloud-based NoSQL database for data storage.
 - **dotenv**: Package for managing environment variables.
 
-## File Structure
 
