@@ -12,7 +12,7 @@ exports.AddUser = asyncerrorhandler(async(req,res,next)=>{
                 ]
               });
                if(UserExists){
-                  return next({message:'User already Exists LogIn Instead',statusCode:404});
+                  return next({message:'User already Exists',statusCode:403});
                 }else{
                 const user = await userModel.create({
                     FirstName,
@@ -26,7 +26,7 @@ exports.AddUser = asyncerrorhandler(async(req,res,next)=>{
                   }
            }
     }else{
-        return next({message:'Please Provide All Info about the user To Add them',statusCode:403});
+        return next({message:'Please Provide All Info about the user To Add them',statusCode:400});
     }
  });
 
@@ -62,13 +62,13 @@ exports.UpdateUser = asyncerrorhandler(async(req,res,next)=>{
     }
     
     }else{
-      return next({ message: 'Please provide Atleast one Field To Update', statusCode: 404 });
+      return next({ message: 'Please provide Atleast one Field To Update', statusCode: 400 });
     }
     }else{
       return next({ message: 'Please provide a valid user Id', statusCode: 404 });
     }
     }else{
-        return next({ message: 'Please provide a valid user Id ', statusCode: 403 });
+        return next({ message: 'Please provide a valid user Id ', statusCode: 400 });
     }
 });
 
@@ -100,7 +100,7 @@ exports.getspecificUser = asyncerrorhandler(async(req,res,next)=>{
             return next({ message: 'Please provide a valid user Id', statusCode: 404 });      
          }
     }else{
-        return next({ message: 'Please provide a valid user Id', statusCode: 404 });
+        return next({ message: 'Please provide a valid user Id', statusCode: 400 });
     }
    });    
 
